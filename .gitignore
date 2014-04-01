@@ -1,6 +1,9 @@
 # bot login info
 login.properties
 
+# annoying random generated file
+.ds_store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
