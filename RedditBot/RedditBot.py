@@ -3,7 +3,6 @@ import pickle
 import time
 import os
 
-
 if __name__ == "__main__":
 
     print "starting RedditBot"
@@ -12,7 +11,7 @@ if __name__ == "__main__":
     if os.environ.get('MEMCACHEDCLOUD_SERVERS', None):
         import bmemcached
 
-        log('Running on heroku, using memcached', Color.BOLD)
+        print 'Running on heroku, using memcached'
 
         # Authenticate Memcached
         running_on_heroku = True
