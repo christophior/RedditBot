@@ -29,6 +29,7 @@ if __name__ == "__main__":
 
     # getting submissions from subreddit
     subreddit = r.get_subreddit('aww')
-    submissions = subreddit.get_hot(limit=10)
+    submissions = subreddit.get_hot(limit=1)
     for submission in submissions:
-    	 print submission.title
+        new_comment = submission.add_comment('rawr')
+        print submission.title
