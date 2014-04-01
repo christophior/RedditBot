@@ -7,24 +7,12 @@ if __name__ == "__main__":
 
     print "starting RedditBot"
 
-    # Check to see if we're running on Heroku
-    if os.environ.get('MEMCACHEDCLOUD_SERVERS', None):
-        import bmemcached
-
-        print 'Running on heroku, using memcached'
-
-        # Authenticate Memcached
-        running_on_heroku = True
-        mc = bmemcached.Client(os.environ.get('MEMCACHEDCLOUD_SERVERS').split(','), os.environ.get('MEMCACHEDCLOUD_USERNAME'), os.environ.get('MEMCACHEDCLOUD_PASSWORD'))
-
-        # Retrieve heroku env variables for deployment
-        login_info = [os.environ['REDDIT_USERNAME'], os.environ['REDDIT_PASSWORD']]
+    # Retrieve heroku env variables for deployment
+    login_info = [os.environ['REDDIT_USERNAME'], os.environ['REDDIT_PASSWORD']]
 
     # bot login info for local testing
-    else:
-        with open("login.properties", "r") as loginFile:
-            login_info = loginFile.readlines()
-
+    # with open("login.properties", "r") as loginFile:
+        # login_info = loginFile.readlines()
 
     # removing new lines from username/password
     login_info[0] = login_info[0].replace('\n', '')
