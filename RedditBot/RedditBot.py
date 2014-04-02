@@ -8,11 +8,11 @@ if __name__ == "__main__":
     print "starting RedditBot"
 
     # Retrieve heroku env variables for deployment
-    login_info = [os.environ['REDDIT_USERNAME'], os.environ['REDDIT_PASSWORD']]
+    # login_info = [os.environ['REDDIT_USERNAME'], os.environ['REDDIT_PASSWORD']]
 
     # bot login info for local testing
-    # with open("login.properties", "r") as loginFile:
-        # login_info = loginFile.readlines()
+    with open("login.properties", "r") as loginFile:
+        login_info = loginFile.readlines()
 
     # removing new lines from username/password
     login_info[0] = login_info[0].replace('\n', '')
@@ -29,7 +29,7 @@ if __name__ == "__main__":
 
     # getting submissions from subreddit
     subreddit = r.get_subreddit('aww')
-    submissions = subreddit.get_hot(limit=1)
+    submissions = subreddit.get_hot(limit=10)
     for submission in submissions:
-        new_comment = submission.add_comment('rawr')
+        # new_comment = submission.add_comment('rawr')
         print submission.title
